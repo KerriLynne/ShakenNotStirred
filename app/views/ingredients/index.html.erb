@@ -1,0 +1,15 @@
+<% if @cocktail %>
+<h4><%= @cocktail.name %>'s Ingredients: </h4>
+<ul>
+<% @ingredients.each do |ing| %>
+    <li><%= link_to ing.name, cocktail_ingredient_path(@cocktail, ing) %></li>
+    <% end %>
+</ul>
+<% else %>
+<h4> All Ingredients: </h4>
+<ul>
+<% @ingredients.each do |ing| %>
+    <li><%= link_to ing.name, ing %></li>
+    <% end %>
+</ul>
+<% end %>

@@ -1,0 +1,15 @@
+# can this page add additional ingredients to already existing cocktail?
+# should/can this be part of the edit page instead?
+
+
+    <h4> Ingredients:</h4>
+    <%= form_with model: [@cocktail, @ingredient], local: :true do |f| %>
+        <br>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <br>
+        <%= f.submit %>
+    <% end %>  
+    <br>
+    <br>
+    
