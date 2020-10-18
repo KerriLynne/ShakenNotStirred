@@ -1,0 +1,40 @@
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+    <%= form_with url:'/cocktails', method: "get", local: true do %>
+      <%=select_tag 'ingredient_id', options_from_collection_for_select(Ingredient.order(:name).all, :id, :name), prompt:"Choose an ingredient"%>
+      <%= text_field_tag :search, "", placeholder: "Cocktail Name"%>
+      <%= submit_tag "Search"%>
+  <% end %>
+
+
+    <% if session[:user_id] %>
+      <h1>Welcome, </h1>
+      <h2><%= current_user.username %>!</h2>
+      <p class="lead text-muted">Add more of your fancy cocktails or explore others!</p>
+      <p>
+     
+      <a href='/cocktails/new' class="btn btn-primary my-2" style="background-color:black;border-color:black;">Add new cocktail</a>
+      <a href='/users/<%=@user_id%>/cocktails' class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Show my cocktails</a>
+      <a href='/cocktails' class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Show all cocktails</a>
+      <a href='/ingredients' class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Choose cocktail by ingredients!</a>
+    </p>
+      <% else %>
+      <p>
+        <a href='/login' class="btn btn-primary my-2">Log in</a>
+        <a href='/auth/facebook' class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Log in with Facebook!</a>
+        <a href='/users/new' class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Sign up</a>
+      </p>
+      <% end %>
+    </div>
+  </section>
+
+
+
+<% if logged_in? %>
+    <%= button_to "Log Out", '/session', method: :delete%>
+<% else %>
+    <%= button_to "Login", '/login', method: :get%>
+    <%= button_to "Sign Up", '/users/new', method: :get%>
+<% end %>

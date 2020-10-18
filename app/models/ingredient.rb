@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-    belongs_to :cocktail
-    belongs_to :user
-    validates_presence_of :name
+    has_many :cocktail_ingredients
+    has_many :cocktails, through: :cocktail_ingredients
+    # validates_presence_of :name
 end

@@ -1,14 +1,17 @@
 <%= form_with model:@cocktail, local: :true do |form| %>
-    <h4> Name: <%= form.text_field :name, class: @cocktail.errors.any? ? "custom_errors" : nil %></h4>
+    <p> 
+    <%= form.label :name%><br>
+    <%= form.text_field :name, class: @cocktail.errors.any? ? "custom_errors" : nil %></p>
     <br>
-    <h4> Calories:<%= form.number_field :calories %></h4>  
+    <%= form.label :calories%><br>
+    <p><%= form.number_field :calories, class: @cocktail.errors.any? ? "custom_errors" : nil %></p>  
     <br>
-    <h4> Recipe:<%= form.text_field :recipe %></h4>
+    <%= form.label :recipe%><br>
+    <p><%= form.text_area :recipe, class: @cocktail.errors.any? ? "custom_errors" : nil %></p>
     <br>
-    <h4> Ingredients:</h4>
-    <%= form.fields_for :ingredients do |ing| %>
-        <%= ing.text_field :name %>
-    <% end %>  
+    <p><%= form.label :ingredients%></p>
+    <%= form.collection_select(:ingredient_ids, Ingredient.order(:name).all, :id, :name, {}, {multiple:true})%>
+    <br>
     <br>
     <br>
     <%= form.submit %>

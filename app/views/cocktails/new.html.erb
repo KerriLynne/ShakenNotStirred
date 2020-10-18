@@ -1,14 +1,6 @@
-<br>
-<br>
-<br>
-<%= form_with model:@cocktail, local: :true do |form| %>
-    <h4> Name: <%= form.text_field :name %></h4>
-    <br>
-    <h4> Calories:<%= form.number_field :calories %></h4>
-    <br>
-    <h4> Ingredients:<%= form.text_field :ingredients %></h4>
-    <br>
-    <h4> Recipe:<%= form.text_field :recipe %></h4>
-    <br>
-    <%= form.submit %>
-<% end %>
+<section class="jumbotron text-center">
+    <div class="container">
+    <h1>Add a new cocktail</h1>
+        <%= render 'form' %>
+    </div>
+</section>

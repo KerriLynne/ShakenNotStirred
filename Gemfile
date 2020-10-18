@@ -24,6 +24,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activerecord-reset-pk-sequence'
 gem 'bootstrap', '~> 4.5.2'
 gem 'autoprefixer-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+gem "font-awesome-rails"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

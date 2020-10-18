@@ -1,14 +1,27 @@
-<h1> Recipe for <%= @cocktail.name %>! </h1>
+<section class="jumbotron text-center">
+    <div class="container">
+
+<h1> Recipe for <%= @cocktail.name %> </h1>
 <br>
-<h4> Name: <%=@cocktail.name %></h4>
-<h4> Calories: <%=@cocktail.calories %></h4>
-<h4> Ingredients: <%=@cocktail.ingredients.find_by(params[:cocktail_id]) %></h4>
+<label> Name: </label>
+<h4><%=@cocktail.name %></h4>
+<label> Calories: </label>
+<h4><%=@cocktail.calories %></h4>
+<label> Ingredients: </label>
+<% @cocktail.ingredients.each do |ing| %>
+    <h5><li><%= ing.name %></li></h5>
+    <% end %>
+<br> 
 <h4>Recipe: </h4>
  <p><%=@cocktail.recipe %></p>
 
 <h6>
-    <%= button_to "Edit", edit_cocktail_path(@cocktail), method: :get%>
+    <a href=<%=edit_cocktail_path(@cocktail)%> class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Edit</a>
 </h6>
 <h6>
     <%= button_to "Delete", @cocktail, method: :delete, data: {confirm: "Delete this cocktail?"} %>
+
 </h6>
+
+    </div>
+</section>

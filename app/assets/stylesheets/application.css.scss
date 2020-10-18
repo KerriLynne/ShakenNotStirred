@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
- 
+//  @import "font-awesome-sprockets";
+ @import "font-awesome";
+
  .jumbotron {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -32,7 +34,15 @@
   }
   
   .jumbotron h1 {
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 75px;
+    font-family: 'Pinyon Script', cursive;
+  }
+
+  .jumbotron h2 {
+    font-weight: 400;
+    font-size: 60px;
+    font-family: 'Pinyon Script', cursive;
   }
   
   .jumbotron .container {
@@ -47,3 +57,22 @@
   footer p {
     margin-bottom: .25rem;
   }
+
+  .custom_errors {
+      border-style: solid ;
+      border-color: darkred;
+  }
+
+  .button-primary {
+    color: #fff;
+    background-color: #212529;
+    border-color: #212529;
+  }
+
+  .cocktail {
+    display: flex;
+    color: white;
+    height: 25px;
+  }
+
+  

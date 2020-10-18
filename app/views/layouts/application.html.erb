@@ -4,11 +4,15 @@
     <title>ShakenNotStirred</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="album.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -23,11 +27,12 @@
           <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
+          <h4 class="text-white">Menu</h4>
+          <ul class="list-unstyled">Menu</a></li>
+            <li><a href="/cocktails" class="text-white">All Cocktails</a></li>
+            <li><a href="/cocktails" class="text-white">My Cocktails</a></li>
+            <li><a href="/ingredients" class="text-white">Choose Ingredient</a></li>
+            <li><a href="/session" class="text-white">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -35,16 +40,24 @@
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
+    <% if logged_in? %>
+      <a href="/home" <i class="far fa-cocktail"></i> 
+        <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="cocktail" role="img" xmlns="http://www.w3.org/2000/svg" width="20" height="20" color="white" text-color="text-white" viewBox="0 0 576 512" class="svg-inline--fa fa-cocktail fa-w-18 fa-2x"><path fill="currentColor" d="M296 464h-64V346.78l176.74-176.73c15.52-15.52 4.53-42.05-17.42-42.05H24.68c-21.95 0-32.94 26.53-17.42 42.05L184 346.78V464h-64c-22.09 0-40 17.91-40 40 0 4.42 3.58 8 8 8h240c4.42 0 8-3.58 8-8 0-22.09-17.91-40-40-40zM81.1 176h253.8L208 302.9 81.1 176zM432 0c-62.61 0-115.35 40.2-135.18 96h52.54c16.65-28.55 47.27-48 82.64-48 52.93 0 96 43.06 96 96s-43.07 96-96 96c-14.04 0-27.29-3.2-39.32-8.64l-35.26 35.26C379.23 279.92 404.59 288 432 288c79.53 0 144-64.47 144-144S511.53 0 432 0z" class=""></path></svg>
+          <strong style="color:white;">SNS</strong>
+        </a>
+    <% else %>
+      <a href="/" <i class="far fa-cocktail"></i> 
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="cocktail" role="img" xmlns="http://www.w3.org/2000/svg" width="20" height="20" color="white" text-color="text-white" viewBox="0 0 576 512" class="svg-inline--fa fa-cocktail fa-w-18 fa-2x"><path fill="currentColor" d="M296 464h-64V346.78l176.74-176.73c15.52-15.52 4.53-42.05-17.42-42.05H24.68c-21.95 0-32.94 26.53-17.42 42.05L184 346.78V464h-64c-22.09 0-40 17.91-40 40 0 4.42 3.58 8 8 8h240c4.42 0 8-3.58 8-8 0-22.09-17.91-40-40-40zM81.1 176h253.8L208 302.9 81.1 176zM432 0c-62.61 0-115.35 40.2-135.18 96h52.54c16.65-28.55 47.27-48 82.64-48 52.93 0 96 43.06 96 96s-43.07 96-96 96c-14.04 0-27.29-3.2-39.32-8.64l-35.26 35.26C379.23 279.92 404.59 288 432 288c79.53 0 144-64.47 144-144S511.53 0 432 0z" class=""></path></svg>
+        <strong style="color:white;">SNS</strong>
       </a>
+    <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    </div>
+   </div>
   </div>
 </header>
+
   <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
   <% end %>
@@ -52,3 +65,13 @@
     <%= yield %>
   </body>
 </html>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">text 1</a>
+    </p>
+    <p>text 0</p>
+    <p>New to Bootstrap? <a href="{{ site.url }}/">text 2</a> or read our <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/introduction/">text 3</a>.</p>
+  </div>
+</footer>

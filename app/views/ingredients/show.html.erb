@@ -1,1 +1,8 @@
+<section class="jumbotron text-center">
+    <div class="container">
 <h1><%= @ingredient.name %></h1>
+<% @ingredient.cocktails.each do |cocktail| %>
+    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+<% end %>
+    </div>
+</section>
