@@ -1,10 +1,14 @@
 class CocktailsController < ApplicationController
 
     def index
-        if params[:search]
-            @cocktails = Cocktail.search(params[:search])
+        if params[:ingredient_id].present?
+            ingredient = Ingredient.find_by_id(params[:ingredient_id])
+            @cocktails = ingredient.cocktails
         else
             @cocktails = Cocktail
+        end
+        if params[:search]
+            @cocktails = @cocktails.search(params[:search])
         end
         @cocktails = @cocktails.order(:name)
     end
