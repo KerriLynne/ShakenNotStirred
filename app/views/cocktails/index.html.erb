@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-</head>
+<section class="jumbotron text-center">
+    <div class="container">
 <%= form_with url:'/cocktails', method: "get", local: true do %>
     <%=select_tag 'ingredient_id', options_from_collection_for_select(Ingredient.order(:name).all, :id, :name, params[:ingredient_id]), prompt:"Choose an ingredient"%>
     <%= text_field_tag :search, params[:search], placeholder: "Cocktail Name"%>
     <%= submit_tag "Search"%>
 <% end %>
+<br>
 <% if params[:search] %>
     <h1>Your Seach Results:</h1>
     <%if @cocktails.empty? %>
@@ -19,3 +17,5 @@
  <% @cocktails.each do |cocktail| %>
     <li> <%= link_to cocktail.name, cocktail_path(cocktail) %></li>
 <% end %>
+<section class="jumbotron text-center">
+    <div class="container">

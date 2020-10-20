@@ -7,8 +7,7 @@
       <%= text_field_tag :search, "", placeholder: "Cocktail Name"%>
       <%= submit_tag "Search"%>
   <% end %>
-
-
+<br>
     <% if session[:user_id] %>
       <h1>Welcome, </h1>
       <h2><%= current_user.username %>!</h2>

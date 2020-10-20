@@ -33,7 +33,7 @@ class CocktailsController < ApplicationController
         if @cocktail.valid?
             redirect_to @cocktail
         else
-            flash[:notice] = @cocktail.errors.full_messages.join(" - ")
+            flash[:notice] = @cocktail.errors.full_messages.to_sentence
             redirect_to new_cocktail_path
         end
     end
@@ -48,7 +48,7 @@ class CocktailsController < ApplicationController
         if @cocktail.errors.empty?
             redirect_to @cocktail
         else
-            flash[:notice] = @cocktail.errors.full_messages.join(" - ")
+            flash[:notice] = @cocktail.errors.full_messages.to_sentence
             redirect_to edit_cocktail_path(@cocktail)
         end
     end
