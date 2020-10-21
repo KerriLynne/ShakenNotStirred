@@ -78,7 +78,7 @@ class CocktailsController < ApplicationController
     end
 
     def authorized?
-        if !current_user.in?(@cocktail.users)
+        if !@cocktail.can_edit?(current_user)
             head :unauthorized
         end
     end

@@ -11,6 +11,13 @@ class Cocktail < ApplicationRecord
     scope :search, -> (query) { where("LOWER(name) LIKE ?", "%#{query.downcase}%") }
 
 
+
+
+    def can_edit?(user)
+        user.in?(self.users)
+    end
+
+
     # validates_presence_of :one_ingredient
     
     # def one_ingredient(ing)

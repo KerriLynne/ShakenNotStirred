@@ -15,6 +15,7 @@
 <h4>Recipe: </h4>
  <p><%=@cocktail.recipe %></p>
 
+ <% if @cocktail.can_edit?(current_user) %>
 <h6>
     <a href=<%=edit_cocktail_path(@cocktail)%> class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Edit</a>
 </h6>
@@ -22,6 +23,7 @@
     <%= button_to "Delete", @cocktail, method: :delete, data: {confirm: "Delete this cocktail?"} %>
 
 </h6>
+<% end %>
 
     </div>
 </section>

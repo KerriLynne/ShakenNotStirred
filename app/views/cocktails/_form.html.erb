@@ -1,16 +1,16 @@
 <%= form_with model:@cocktail, local: :true do |form| %>
     <p> 
     <%= form.label :name%><br>
-    <%= form.text_field :name, class: @cocktail.errors.any? ? "custom_errors" : nil %></p>
+    <%= form.text_field :name, class: @cocktail.errors[:name].present? ? "custom_errors" : nil %></p>
     <br>
     <%= form.label :calories%><br>
-    <p><%= form.number_field :calories, class: @cocktail.errors.any? ? "custom_errors" : nil %></p>  
+    <p><%= form.number_field :calories, class: @cocktail.errors[:calories].present? ? "custom_errors" : nil %></p>  
     <br>
     <%= form.label :recipe%><br>
-    <p><%= form.text_area :recipe, class: @cocktail.errors.any? ? "custom_errors" : nil %></p>
+    <p><%= form.text_area :recipe, class: @cocktail.errors[:recipe].present? ? "custom_errors" : nil %></p>
     <br>
     <p><%= form.label :ingredients%></p>
-    <%= form.collection_select(:ingredient_ids, Ingredient.order(:name).all, :id, :name, {}, {multiple:true})%>
+    <%= form.collection_select(:ingredient_ids, Ingredient.order(:name).all, :id, :name, {}, {multiple:true, class: @cocktail.errors[:ingredients].present? ? "custom_errors" : nil })%>
     <br>
     <br>
     <br>
