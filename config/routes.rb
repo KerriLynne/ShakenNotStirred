@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   resources :cocktails do
     resources :ingredients
   end
+
+  resources :cocktails do
+    resources :reviews
+  end
   resources :ingredients
   resources :users
 
