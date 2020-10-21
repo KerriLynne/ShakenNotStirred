@@ -1,10 +1,10 @@
 <section class="jumbotron text-center">
     <div class="container">
-    <h1>Add a review for this <%= @cocktail %></h1>
-<%= form_with model:@review, local: :true do |form| %>
+    <h1>Add a review for this <%= @cocktail.name%></h1>
+<%= form_with model:[@cocktail, @review], local: :true do |form| %>
     <p> 
     <h6> Rate this cocktail 1-10!</h6><br>
-    <%= form.number_field :name, class: @review.errors[:name].present? ? "custom_errors" : nil %></p>
+    <%= form.number_field :rating, step:0.1, class: @review.errors[:rating].present? ? "custom_errors" : nil %></p>
     <br>
     <%= form.submit %>
 <% end %>

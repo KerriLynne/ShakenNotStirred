@@ -4,28 +4,30 @@ class ReviewsController < ApplicationController
     # before_action :authorized?, only: [:edit, :update, :destroy]
 
     def new
-        @review = Review.new
+        @cocktail = Cocktail.find_by_id(params[:cocktail_id])
+        @review = Review.new(cocktail: @cocktail)
     end
 
-    def new
-        if params[:cocktail_id]
-            @cocktail = Cocktail.find_by_id(params[:cocktail_id])
-            @review = @cocktail.reviews.build
+    def create
+        @cocktail = Cocktail.find_by_id(params[:cocktail_id])
+        if current_user.reviews.where(cocktail: @cocktail).exists?
+            redirect_to @cocktail
         else
-            flash.now[:notice] = @review.errors.full_messages.to_sentence
-            render :new
+            @review = @cocktail.reviews.create(user: current_user, rating:params[:review][:rating])
+            if @review.persisted?
+                redirect_to @cocktail
+            else
+                lash.now[:notice] = @review.errors.full_messages.to_sentence
+                render :new
+            end
         end
     end
 
-    # def create
-    #     @cocktail = current_user.cocktails.create(cocktail_params)
-    #     @review = @cocktail.reviews.build
-    #     if @review.persisted?
-    #         redirect_to @cocktail
-    #     else
-    #         flash.now[:notice] = @review.errors.full_messages.to_sentence
-    #         render :new
-    #     end
+
+    private
+
+    # def review_params
+    #     params.require(:review).permit(:rating)
     # end
 
 end

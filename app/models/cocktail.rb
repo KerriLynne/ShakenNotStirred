@@ -3,6 +3,7 @@ class Cocktail < ApplicationRecord
     has_many :ingredients, through: :cocktail_ingredients
     has_many :user_cocktails
     has_many :users, through: :user_cocktails
+    has_many :reviews
     #accepts_nested_attributes_for :ingredient_ids #, reject_if: proc { |ing| ing["name"] == "" }
     validates :name, uniqueness: true
     validates_presence_of :name, :recipe, :calories #, :ingredients

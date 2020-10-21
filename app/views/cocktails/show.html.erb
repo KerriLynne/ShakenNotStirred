@@ -14,6 +14,9 @@
 <br> 
 <h4>Recipe: </h4>
  <p><%=@cocktail.recipe %></p>
+ <br> 
+<h4>Average Rating out of 10: </h4>
+ <p><%=@cocktail.reviews.average(:rating).try(:round, 1) || 'Not yet rated' %></p>
 
  <% if @cocktail.can_edit?(current_user) %>
 <h6>
@@ -24,9 +27,16 @@
 
 </h6>
 <% else %>
+    <% review = current_user.reviews.where(cocktail: @cocktail).first %>
+    <% if review %>
+        <h4> your rating for this cocktail: </h4>
+        <%= review.rating %>
+    <h1>edit button <h/1>
+    <% else %>
 <h6>
     <a href=<%=new_cocktail_review_path(@cocktail)%> class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Add a review</a>
 </h6>
+    <% end %>
 <% end %>
 
     </div>
