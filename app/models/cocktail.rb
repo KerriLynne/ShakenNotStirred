@@ -6,7 +6,7 @@ class Cocktail < ApplicationRecord
     #accepts_nested_attributes_for :ingredient_ids #, reject_if: proc { |ing| ing["name"] == "" }
     validates :name, uniqueness: true
     validates_presence_of :name, :recipe, :calories #, :ingredients
-    validates_presence_of :ingredients, unless: ->(ingredient){ingredient.name.present?}
+    validates_presence_of :ingredients
     validates :name, length: { in: 2..20 }
     scope :search, -> (query) { where("LOWER(name) LIKE ?", "%#{query.downcase}%") }
 

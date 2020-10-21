@@ -1,4 +1,7 @@
 class CocktailsController < ApplicationController
+    before_action :require_login
+    before_action :find_cocktail, only: [:show, :edit, :update, :destroy]
+    before_action :authorized?, only: [:edit, :update, :destroy]
 
     def index
         if params[:ingredient_id].present?
@@ -14,7 +17,6 @@ class CocktailsController < ApplicationController
     end
 
     def show
-        find_cocktail
             if @cocktail
                 render :show
             else
@@ -29,21 +31,19 @@ class CocktailsController < ApplicationController
     end
 
     def create
-        @cocktail = Cocktail.create(cocktail_params)
-        if @cocktail.valid?
+        @cocktail = current_user.cocktails.create(cocktail_params)
+        if @cocktail.persisted?
             redirect_to @cocktail
         else
-            flash[:notice] = @cocktail.errors.full_messages.to_sentence
-            redirect_to new_cocktail_path
+            flash.now[:notice] = @cocktail.errors.full_messages.to_sentence
+            render :new
         end
     end
 
     def edit
-        find_cocktail
     end
 
     def update
-        find_cocktail
         @cocktail.update(cocktail_params)
         if @cocktail.errors.empty?
             redirect_to @cocktail
@@ -54,7 +54,6 @@ class CocktailsController < ApplicationController
     end
 
     def destroy
-        find_cocktail
         if @cocktail.destroy
             redirect_to cocktails_path
         else
@@ -71,7 +70,17 @@ class CocktailsController < ApplicationController
     end
 
     def cocktail_params
-        params.require(:cocktail).permit(:name, :recipe, :calories, :comment)
+        params.require(:cocktail).permit(:name, :recipe, :calories, :comment, ingredient_ids:[])
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+    end
+
+    def authorized?
+        if !current_user.in?(@cocktail.users)
+            head :unauthorized
+        end
     end
 
 
