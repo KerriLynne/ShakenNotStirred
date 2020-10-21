@@ -23,6 +23,10 @@
     <%= button_to "Delete", @cocktail, method: :delete, data: {confirm: "Delete this cocktail?"} %>
 
 </h6>
+<% else %>
+<h6>
+    <a href=<%=new_cocktail_review_path(@cocktail)%> class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Add a review</a>
+</h6>
 <% end %>
 
     </div>

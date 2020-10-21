@@ -8,7 +8,7 @@ class CocktailsController < ApplicationController
             ingredient = Ingredient.find_by_id(params[:ingredient_id])
             @cocktails = ingredient.cocktails
         else
-            @cocktails = Cocktail
+            @cocktails = Cocktail.all
         end
         if params[:search]
             @cocktails = @cocktails.search(params[:search])
