@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/', to: 'sessions#welcome'
   get '/home', to: 'sessions#home'
-  # get '/welcome', to: 'sessions#welcome'
-  # get '/welcome/home', to: 'sessions#home'
   delete '/session', to: 'sessions#destroy'
   get '/users/:user_id/cocktails', to: 'users#user_cocktails_index'
 
@@ -32,5 +30,5 @@ Rails.application.routes.draw do
   resources :users
 
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
