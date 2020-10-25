@@ -29,9 +29,8 @@
 <% else %>
     <% review = current_user.reviews.where(cocktail: @cocktail).first %>
     <% if review %>
-        <h4> your rating for this cocktail: </h4>
-        <%= review.rating %>
-    <h1>edit button <h/1>
+        <h4> Your rating for this cocktail: </h4>
+        <p><%= review.rating %></p>
     <% else %>
 <h6>
     <a href=<%=new_cocktail_review_path(@cocktail)%> class="btn btn-secondary my-2" style="background-color:black;border-color:black;">Add a review</a>

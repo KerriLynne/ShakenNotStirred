@@ -17,9 +17,23 @@ class ReviewsController < ApplicationController
             if @review.persisted?
                 redirect_to @cocktail
             else
-                lash.now[:notice] = @review.errors.full_messages.to_sentence
+                flash.now[:notice] = @review.errors.full_messages.to_sentence
                 render :new
             end
+        end
+    end
+
+    def edit
+    end
+
+    def update
+        @cocktail = Cocktail.find_by_id(params[:cocktail_id])
+        @review = @cocktail.reviews.update(user: current_user, rating:params[:review][:rating])
+        if @review.persisted?
+            redirect_to @cocktail
+        else
+            flash[:notice] = @review.errors.full_messages.to_sentence
+            redirect_to edit_cocktail_review_path(@cocktail)
         end
     end
 
