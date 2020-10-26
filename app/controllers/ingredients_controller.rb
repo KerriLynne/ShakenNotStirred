@@ -8,6 +8,7 @@ class IngredientsController < ApplicationController
             @ingredients = @cocktail.ingredients
         else
             @ingredients = Ingredient.all.find_all{|ing| ing.name != ""}
+            @ingredients.sort
         end
     end
 

@@ -3,7 +3,7 @@
 <h2><%= current_user.username %>'s Cocktails: </h2>
 <br>
 
- <% @cocktails.each do |cocktail| %>
+ <% @cocktails.order(:name).each do |cocktail| %>
     <li> <%= link_to cocktail.name, cocktail_path(cocktail) %> </li>
     <% end %>
 

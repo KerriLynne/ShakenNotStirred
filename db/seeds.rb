@@ -128,7 +128,7 @@ calories:187, ingredients: [campari, sweet_vermouth, soda, orange])
 americano = user1.cocktails.create(name:"Americano", recipe:"Pour 1 1/2 ounces of Campari and 1 1/2 ounces of vermouth into a rocks or highball glass filled with ice. Add splash of club soda. Garnish with an orange twist.",
 calories:187, ingredients: [campari, sweet_vermouth, soda, orange])
 
-lychee_martini = user1.cocktails.create(name:"Lychee", recipe:"In a cocktail shaker filled with ice add 6 ounces of vodka, 4 ounces of lychee juice and splash of vermouth. Shake until chilled. Pour into 2 martini glasses and garnish with lychees.",
+lychee_martini = user1.cocktails.create(name:"Lychee Martini", recipe:"In a cocktail shaker filled with ice add 6 ounces of vodka, 4 ounces of lychee juice and splash of vermouth. Shake until chilled. Pour into 2 martini glasses and garnish with lychees.",
 calories:242, ingredients: [vodka, lychee, vermouth])
 
 gibson_martini = user1.cocktails.create(name:"Gibson Martini", recipe:"Combine 2 1/2 ounces of gin and 3/4 ounce of dry vermouth in a mixing glass filled with ice and stir until chilled. Strain into chilled cocktail glass. Garnish with a cocktail onion",
