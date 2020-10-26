@@ -14,13 +14,13 @@ This application was made to create, find and review amazing cocktail recipes al
 
 ## Usage
 
-1.) Run: ```rake db:migrate```
+1. Run: ```rake db:migrate```
 
-2.) Run: ```rake db:seed```
+2. Run: ```rake db:seed```
 
-3.) Run: ```rails s```
+3. Run: ```rails s```
 
-4.) Open your browser and go to ```localhost:3000```.
+4. Open your browser and go to ```localhost:3000```.
 
 ## Contributing
 
