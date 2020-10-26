@@ -1,6 +1,6 @@
 # Shaken Not Stirred
 
-This application was made to create, find and review amazing cocktail recipes all in one place!  You can use this to keep all of your bougie cocktail recipes handy for gatherings or holidays, to search for a new cocktail recipe, or to choose a cocktail stricly by ingredient.  After trying out other users recipes, give them a review to let them know what you think!
+This application was made to create, find and review amazing cocktail recipes all in one place!  You can use this to keep all of your bougie cocktail recipes handy for gatherings or holidays, to search for a new cocktail recipe, or to choose a cocktail strictly by ingredient.  After trying out other users recipes, give them a review to let them know what you think!
 
 ## Insructions
 
