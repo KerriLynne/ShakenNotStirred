@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
-    # before_action :require_login
+    before_action :require_login
     # before_action :find_cocktail, only: [:show, :edit, :update, :destroy]
-    # before_action :authorized?, only: [:edit, :update, :destroy]
+    # before_action :require_auth, only: [:new, :create]
 
     def new
         @cocktail = Cocktail.find_by_id(params[:cocktail_id])
@@ -40,8 +40,9 @@ class ReviewsController < ApplicationController
 
     private
 
-    # def review_params
-    #     params.require(:review).permit(:rating)
-    # end
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+    end
+
 
 end

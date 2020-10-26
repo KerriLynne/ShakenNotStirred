@@ -55,6 +55,8 @@ champagne = Ingredient.create!(name:"Champagne")
 aperol = Ingredient.create!(name:"Aperol")
 prosecco = Ingredient.create!(name:"Prosecco")
 grapefruit = Ingredient.create!(name:"Grapefruit")
+lychee = Ingredient.create!(name:"Lychee Juice")
+onions = Ingredient.create!(name:"Onions")
 
 
 martini = user.cocktails.create(name:"Dirty Martini", recipe:"Combine 2 ounces gin or vodka, 1/2 ounce dry vermouth and 1/2 ounce olive brine in a mixing 
@@ -75,22 +77,22 @@ calories:200, ingredients: [kosher_salt, lime, tequila_blanco, simple_syrup], co
 sidecar = user.cocktails.create(name:"Side Car", recipe:"Place some sugar on a small plate. Moisten half of rim of a coupe glass with a little lemon juice and dip into sugar; shake off excess. Set aside. Combine 2 ounces brandy, ¾ ounce triple sec, and remaining ¾ oz. lemon juice in a cocktail shaker. Fill shaker with ice, cover, and shake vigorously until outside of shaker is very cold, about 20 seconds. Strain cocktail through a Hawthorne strainer or a slotted spoon into reserved glass.",
 calories:207, ingredients: [granulated_sugar, lemon_juice, brandy, triple_sec], comment: "awesome side car")
 
-whiskey_smash = user1.cocktails.create(name:"Whiskey Smash", recipe:"Using a muddler or the handle of a wooden spoon, mash 7 fresh mint leaves, 1 lemon half, quartered lengthwise, and 1 Tbsp. simple syrup (click for recipe) in a 16-oz. mixing glass or a cocktail shaker 4–5 times just to release juices and oils. Add 1/4 cup bourbon. Transfer to an Old Fashioned glass. Fill halfway with crushed ice, stir, then mound more crushed ice on top. Garnish with mint sprigs.",
+whiskey_smash = user.cocktails.create(name:"Whiskey Smash", recipe:"Using a muddler or the handle of a wooden spoon, mash 7 fresh mint leaves, 1 lemon half, quartered lengthwise, and 1 Tbsp. simple syrup (click for recipe) in a 16-oz. mixing glass or a cocktail shaker 4–5 times just to release juices and oils. Add 1/4 cup bourbon. Transfer to an Old Fashioned glass. Fill halfway with crushed ice, stir, then mound more crushed ice on top. Garnish with mint sprigs.",
 calories:150, ingredients: [mint, lemon, simple_syrup, bourbon])
 
-gin_tonic = user1.cocktails.create(name:"Gin and Tonic", recipe:"Add 2 ounces of gin to a highball glass filled with ice. Squeeze in lime wedges to taste, then add them to glass. Add 3 ounces of tonic water; stir to combine.",
+gin_tonic = user.cocktails.create(name:"Gin and Tonic", recipe:"Add 2 ounces of gin to a highball glass filled with ice. Squeeze in lime wedges to taste, then add them to glass. Add 3 ounces of tonic water; stir to combine.",
 calories:154, ingredients: [gin, lime, tonic])
 
-moscow_mule = user1.cocktails.create(name:"Moscow Mule", recipe:"Pour 1/4 cup of club soda, 3 tablespoons of vodka, and 1 tablespoon of ginger syrup into a Moscow Mule mug filled with ice; stir gently to combine. Garnish with lime wedges.",
+moscow_mule = user.cocktails.create(name:"Moscow Mule", recipe:"Pour 1/4 cup of club soda, 3 tablespoons of vodka, and 1 tablespoon of ginger syrup into a Moscow Mule mug filled with ice; stir gently to combine. Garnish with lime wedges.",
 calories:182, ingredients: [soda, ginger_syrup, vodka, lime])
 
-daiquiri = user1.cocktails.create(name:"Daiquiri", recipe:"Combine 1 teaspoon of sugar, 1¾ ounces of rum, ¾ ounce of lime juice, and ½ ounce of simple syrup in a cocktail shaker; stir until sugar dissolves, about 20 seconds. Fill shaker with ice, cover, and shake vigorously until outside of shaker is very cold, about 20 seconds. Place a large ice cube in a coupe glass; strain cocktail through a Hawthorne strainer or a slotted spoon into glass.",
+daiquiri = user.cocktails.create(name:"Daiquiri", recipe:"Combine 1 teaspoon of sugar, 1¾ ounces of rum, ¾ ounce of lime juice, and ½ ounce of simple syrup in a cocktail shaker; stir until sugar dissolves, about 20 seconds. Fill shaker with ice, cover, and shake vigorously until outside of shaker is very cold, about 20 seconds. Place a large ice cube in a coupe glass; strain cocktail through a Hawthorne strainer or a slotted spoon into glass.",
 calories:111, ingredients: [sugar, white_rum, lime, simple_syrup])
 
-mint_julep = user1.cocktails.create(name:"Mint Julep", recipe:"In each of 4 short glasses, place 8 mint leaves and 1 teaspoon powdered sugar. Muddle, crushing mint to release oils. Add 1/2 cup (generous) crushed ice to each glass, then 1/4 cup bourbon, and 1 tablespoon water. Stir to blend, adding more powdered sugar if desired. Top each glass with several small sprigs of fresh mint.",
+mint_julep = user.cocktails.create(name:"Mint Julep", recipe:"In each of 4 short glasses, place 8 mint leaves and 1 teaspoon powdered sugar. Muddle, crushing mint to release oils. Add 1/2 cup (generous) crushed ice to each glass, then 1/4 cup bourbon, and 1 tablespoon water. Stir to blend, adding more powdered sugar if desired. Top each glass with several small sprigs of fresh mint.",
 calories:165, ingredients: [granulated_sugar, mint, bourbon])
 
-mojito = user1.cocktails.create(name:"Mojito", recipe:"Muddle ¾ ounce of simple syrup and 2 mint sprigs in a cocktail shaker. Add 2 ounces of rum and ¾ ounce of lime juice. Fill shaker with ice, cover, and shake vigorously until outside of shaker is very cold, about 20 seconds. Strain cocktail through a Hawthorne strainer or a slotted spoon into a tall Collins glass filled with ice. Top off with club soda; garnish with more mint.",
+mojito = user.cocktails.create(name:"Mojito", recipe:"Muddle ¾ ounce of simple syrup and 2 mint sprigs in a cocktail shaker. Add 2 ounces of rum and ¾ ounce of lime juice. Fill shaker with ice, cover, and shake vigorously until outside of shaker is very cold, about 20 seconds. Strain cocktail through a Hawthorne strainer or a slotted spoon into a tall Collins glass filled with ice. Top off with club soda; garnish with more mint.",
 calories:242, ingredients: [simple_syrup, mint, white_rum, lime, soda])
 
 cosmo = user1.cocktails.create(name:"Cosmopolitan", recipe:"Combine vodka, cranberry juice, lime juice, and triple sec in a cocktail shaker. Fill shaker with ice, cover, and shake vigorously until outside of shaker is very cold, about 20 seconds. Strain cocktail through a Hawthorne strainer or a slotted spoon into a martini glass. Garnish with orange twist.",
@@ -119,6 +121,21 @@ calories:180, ingredients: [vodka, cranberry, grapefruit])
 
 old_fashioned = user1.cocktails.create(name:"Old Fashioned", recipe:"Muddle the sugar cube and bitters with one bar spoon of water at the bottom of a chilled rocks glass. (If using simple syrup, combine bitters and one bar spoon of syrup.) Add rye or bourbon. Stir. Add one large ice cube, or three or four smaller cubes. Stir until chilled and properly diluted, about 30 seconds. Slip orange twist on the side of the cube.",
 calories:151, ingredients: [sugar, angostura, rye_whiskey, orange])
+
+americano = user1.cocktails.create(name:"Americano", recipe:"Pour 1 1/2 ounces of Campari and 1 1/2 ounces of vermouth into a rocks or highball glass filled with ice. Add splash of club soda. Garnish with an orange twist.",
+calories:187, ingredients: [campari, sweet_vermouth, soda, orange])
+
+americano = user1.cocktails.create(name:"Americano", recipe:"Pour 1 1/2 ounces of Campari and 1 1/2 ounces of vermouth into a rocks or highball glass filled with ice. Add splash of club soda. Garnish with an orange twist.",
+calories:187, ingredients: [campari, sweet_vermouth, soda, orange])
+
+lychee_martini = user1.cocktails.create(name:"Lychee", recipe:"In a cocktail shaker filled with ice add 6 ounces of vodka, 4 ounces of lychee juice and splash of vermouth. Shake until chilled. Pour into 2 martini glasses and garnish with lychees.",
+calories:242, ingredients: [vodka, lychee, vermouth])
+
+gibson_martini = user1.cocktails.create(name:"Gibson Martini", recipe:"Combine 2 1/2 ounces of gin and 3/4 ounce of dry vermouth in a mixing glass filled with ice and stir until chilled. Strain into chilled cocktail glass. Garnish with a cocktail onion",
+calories:160, ingredients: [gin, onions, vermouth])
+
+gimlet = user1.cocktails.create(name:"Gimlet", recipe:"Add 2 1/2 ounces gin, 1/2 ounce fresh lime juice and 1/2 ounce simple syrup into a shaker with ice and shake. Strain into a chilled cocktail glass or an Old Fashioned glass filled with fresh ice. Garnish with a lime wheel.",
+calories:136, ingredients: [gin, lime, simple_syrup])
 
 
 

@@ -23,7 +23,6 @@ class CocktailsController < ApplicationController
                 flash[:notice] = "Cocktail not found!"
                 redirect_to cocktails_path
             end
-            # conditional to not load error if going to a random :id in the URL
         end
 
     def new

@@ -12,16 +12,6 @@ class IngredientsController < ApplicationController
     end
 
     def show
-        # if params[:cocktail_id]
-        #     @cocktail = Cocktail.find_by_id(params[:cocktail_id])
-        #     find_ingredient
-        #     if @cocktail.ingredients.include?(@ingredient)
-        #         render :show
-        #     else
-        #         flash[:notice] = "Ingredient doesn't belong to cocktail."
-        #         redirect_to cocktails_path
-        #     end
-        # else
             find_ingredient
     end
 
