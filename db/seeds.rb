@@ -13,7 +13,7 @@ user = User.create!(name:"Kerri", username:"kerrilynne", password:"kerri", passw
 user1 = User.create!(name:"Doug", username:"Dougj", password:"kerri", password_confirmation:"kerri", email:"dougjmoran", image:"string", uid:"string")
 
 vodka = Ingredient.create!(name:"Vodka")
-vermouth = Ingredient.create!(name:"Dry Vermouth")
+# vermouth = Ingredient.create!(name:"Dry Vermouth")
 olive_brine = Ingredient.create!(name:"Olive brine")
 olive = Ingredient.create!(name:"Olives")
 
@@ -57,6 +57,10 @@ prosecco = Ingredient.create!(name:"Prosecco")
 grapefruit = Ingredient.create!(name:"Grapefruit")
 lychee = Ingredient.create!(name:"Lychee Juice")
 onions = Ingredient.create!(name:"Onions")
+rum = Ingredient.create!(name:"Rum")
+ginger_beer = Ingredient.create!(name:"Ginger beer")
+egg_white = Ingredient.create!(name:"Egg white")
+applejack = Ingredient.create!(name:"Applejack")
 
 
 martini = user.cocktails.create(name:"Dirty Martini", recipe:"Combine 2 ounces gin or vodka, 1/2 ounce dry vermouth and 1/2 ounce olive brine in a mixing 
@@ -136,6 +140,12 @@ calories:160, ingredients: [gin, onions, vermouth])
 
 gimlet = user1.cocktails.create(name:"Gimlet", recipe:"Add 2 1/2 ounces gin, 1/2 ounce fresh lime juice and 1/2 ounce simple syrup into a shaker with ice and shake. Strain into a chilled cocktail glass or an Old Fashioned glass filled with fresh ice. Garnish with a lime wheel.",
 calories:136, ingredients: [gin, lime, simple_syrup])
+
+dark_stormy = user1.cocktails.create(name:"Dark 'n' Stormy", recipe:"Fill glass with ice, add 1 part rum, then top with 2 parts ginger beer. Squeeze in, then garnish with a lime wedge.",
+calories:208, ingredients: [rum, lime, ginger_beer])
+
+pink_lady = user1.cocktails.create(name:"Pink Lady", recipe:"Fill glass with ice, add 1 part rum, then top with 2 parts ginger beer. Squeeze in, then garnish with a lime wedge.",
+calories:197, ingredients: [gin, applejack, lemon_juice, egg_white, cherry])
 
 
 
