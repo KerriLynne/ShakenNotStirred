@@ -8,7 +8,7 @@
     <%= f.label :password%><br>
     <%= f.password_field :password, class: @user.errors.any? ? "custom_errors" : nil %><br>
     <%= f.label :password%><br>
-    <%= f.password_field :password_confirmation, class: @user.errors.any? ? "custom_errors" : nil %><br>
+    <%= f.password_field :password_confirmation, class: @user.errors.any? ? "custom_errors" : nil %><br><br>
     <%= f.submit %>
 <% end %>
     </div>

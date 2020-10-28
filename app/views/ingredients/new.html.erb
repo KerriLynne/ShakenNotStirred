@@ -4,12 +4,13 @@
     <h2> Add an Ingredient:</h2>
     <%= form_with model: @ingredient, local: :true do |f| %>
         <br>
-        <%= f.label :name %>
+        <%= f.label :name %><br>
         <%= f.text_field :name %>
+        <br>
         <br>
         <%= f.submit %>
     <% end %>  
     <br>
     <br>
     </div>
-    </section>  
+</section>  
