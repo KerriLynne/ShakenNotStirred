@@ -2,29 +2,25 @@ class IngredientsController < ApplicationController
     before_action :require_login
 
     def index
-        if params[:cocktail_id]
-            @cocktail = Cocktail.find_by_id(params[:cocktail_id])
-                #can also verify that cocktail exists
-            @ingredients = @cocktail.ingredients
-        else
-            @ingredients = Ingredient.all.find_all{|ing| ing.name != ""}
-        end
+            @ingredients = Ingredient.order('upper(name)')
     end
 
     def show
-            find_ingredient
+        find_ingredient
     end
 
     def new
-        if params[:cocktail_id]
-            @cocktail = Cocktail.find_by_id(params[:cocktail_id])
-            @ingredient = @cocktail.ingredients.build
-        else
             @ingredient = Ingredient.new
-        end
     end
 
     def create
+        @ingredient = Ingredient.create(ingredient_params)
+        if @ingredient.persisted?
+            redirect_to ingredients_path
+        else
+            flash.now[:notice] = @ingredient.errors.full_messages.to_sentence
+            render :new
+        end
     end
 
 
@@ -36,8 +32,8 @@ class IngredientsController < ApplicationController
         @ingredient = Ingredient.find_by_id(params[:id])
     end
 
-    def require_login
-        return head(:forbidden) unless session.include? :user_id
+    def ingredient_params
+        params.require(:ingredient).permit(:name)
     end
 end
 

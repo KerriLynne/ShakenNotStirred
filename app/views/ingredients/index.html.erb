@@ -2,7 +2,7 @@
     <div class="container">
 <h2> All Ingredients: </h2>
 
-<% @ingredients.sort_by{|n| n[:name]}.each do |ing| %>
+<% @ingredients.each do |ing| %>
     <li><%= link_to ing.name, ing %></li>
     <% end %>
 

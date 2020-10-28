@@ -9,25 +9,14 @@ Rails.application.routes.draw do
   delete '/session', to: 'sessions#destroy'
   get '/users/:user_id/cocktails', to: 'users#user_cocktails_index'
 
-  get '/cocktails/search', to:'cocktails#search'
-  post '/search', to:'cocktails#results'
-  get '/', to:'cocktails#home'
-
+  resources :ingredients
   resources :users, only: [:new, :create]
-
-  resources :users do
-    resources :cocktails
-  end
- 
-  resources :cocktails do
-    resources :ingredients
-  end
 
   resources :cocktails do
     resources :reviews
   end
-  resources :ingredients
-  resources :users
+
+ 
 
 
 

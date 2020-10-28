@@ -10,7 +10,7 @@ class CocktailsController < ApplicationController
         else
             @cocktails = Cocktail.all
         end
-        if params[:search]
+        if params[:search].present?
             @cocktails = @cocktails.search(params[:search])
         end
         @cocktails = @cocktails.order(:name)
@@ -47,8 +47,8 @@ class CocktailsController < ApplicationController
         if @cocktail.errors.empty?
             redirect_to @cocktail
         else
-            flash[:notice] = @cocktail.errors.full_messages.to_sentence
-            redirect_to edit_cocktail_path(@cocktail)
+            flash.now[:notice] = @cocktail.errors.full_messages.to_sentence
+            render :edit
         end
     end
 
@@ -70,10 +70,6 @@ class CocktailsController < ApplicationController
 
     def cocktail_params
         params.require(:cocktail).permit(:name, :recipe, :calories, :comment, ingredient_ids:[])
-    end
-
-    def require_login
-        return head(:forbidden) unless session.include? :user_id
     end
 
     def authorized?

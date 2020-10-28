@@ -13,6 +13,8 @@
     <p> * command + click to select multiple ingredients *</p>
     <%= form.collection_select(:ingredient_ids, Ingredient.order(:name).all, :id, :name, {}, {multiple:true, class: @cocktail.errors[:ingredients].present? ? "custom_errors" : nil })%>
     <br>
+    <p>Didn't see an ingredient you need?</p>
+    <%=link_to "Add an Ingredient!", new_ingredient_path%>
     <br>
     <br>
     <%= form.submit %>
