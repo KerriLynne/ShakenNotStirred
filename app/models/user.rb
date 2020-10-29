@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_many :user_cocktails
     has_many :cocktails, through: :user_cocktails
     has_many :reviews
+    has_many :reviewed_cocktails, through: :reviews, source: :cocktail #was plural
     has_secure_password
     validates :username, presence: true
     validates :username, uniqueness: true

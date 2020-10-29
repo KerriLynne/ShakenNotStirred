@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/home', to: 'sessions#home'
   delete '/session', to: 'sessions#destroy'
   get '/users/:user_id/cocktails', to: 'users#user_cocktails_index'
+  get '/users/:user_id/reviewed_cocktails', to: 'users#reviewed_cocktails'
 
   resources :ingredients
   resources :users, only: [:new, :create]

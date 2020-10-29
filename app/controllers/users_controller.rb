@@ -24,6 +24,12 @@ class UsersController < ApplicationController
     def user_cocktails_index
         @cocktails = current_user.cocktails
     end
+
+    def reviewed_cocktails
+        @cocktails = current_user.reviewed_cocktails
+        # @cocktails = User.find_by(id: params[:user_id]).reviewed_cocktails
+        byebug
+    end
     
 
     private
